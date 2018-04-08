@@ -4,7 +4,11 @@ chrome.runtime.onInstalled.addListener(function () {
 
 chrome.runtime.onStartup.addListener(function () {
     setUpContextMenus();
-})
+});
+
+chrome.contextMenus.onClicked.addListener((objectInfo, tab) => {
+    makeRequest('HEAD', objectInfo.linkUrl, (response) => { alert(response) });
+});
 
 function setUpContextMenus() {
     chrome.contextMenus.create({
@@ -12,10 +16,6 @@ function setUpContextMenus() {
         contexts: ['link']
     });
 };
-
-chrome.contextMenus.onClicked.addListener((objectInfo, tab) => {
-    makeRequest('HEAD', objectInfo.linkUrl, (response) => { alert(response) });
-});
 
 function makeRequest(method, url, done) {
     var xhr = new XMLHttpRequest();
