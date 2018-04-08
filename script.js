@@ -2,6 +2,10 @@ chrome.runtime.onInstalled.addListener(function () {
     setUpContextMenus();
 });
 
+chrome.runtime.onStartup.addListener(function () {
+    setUpContextMenus();
+})
+
 function setUpContextMenus() {
     chrome.contextMenus.create({
         title: "Get link's content-length",
