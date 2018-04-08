@@ -1,0 +1,19 @@
+{
+    "manifest_version": 2,
+    "name": "Link's Content-Length fetcher",
+    "version": "1.0.0",
+    "author": "github.com/Jnnz",
+    "description": "It retrieves the 'Content-Length' header from links.",
+    "icons": { 
+        "16": "icon.png",
+        "48": "icon.png",
+       "128": "icon.png" },
+
+    "background": {
+        "scripts": ["script.js"]
+    },
+    
+    "permissions": [
+        "tabs", "contextMenus", "<all_urls>"
+    ]
+}
